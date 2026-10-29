@@ -20,7 +20,7 @@ Node 22, ESM, TypeScript strict. commander, zod (config), vitest. Plain `fetch` 
 - `--dry-run` prints the digest and posts nothing.
 
 ## Commands
-- `npm test`, `npm run build`, `npm run dev -- --dry-run`
+- `npm test`, `npm run typecheck`, `npm run build` (commit `dist/`), `npm run dev -- --dry-run`
 
 ## Owner
 Senior React/Next.js dev, India. Wants short, simple English and a clean portfolio-grade repo.

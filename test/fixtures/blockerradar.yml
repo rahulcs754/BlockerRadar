@@ -1,0 +1,11 @@
+timezone: Asia/Kolkata
+repos: [acme/web]
+tracker:
+  type: jira
+  baseUrl: https://acme.atlassian.net
+  project: FS
+team:
+  - { name: Asha, github: asha-dev, tracker: asha@acme.com, slack: U01ASHA }
+  - { name: Rohit, github: rohit-dev, tracker: rohit@acme.com }
+  - { name: Vikram, github: vikram-dev, tracker: vikram@acme.com, slack: U01VIK }
+  - { name: Meera, github: meera-dev, tracker: acc-meera }

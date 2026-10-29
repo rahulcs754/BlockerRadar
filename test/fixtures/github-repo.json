@@ -1,0 +1,379 @@
+{
+  "data": {
+    "repository": {
+      "defaultBranchRef": {
+        "name": "main",
+        "target": {
+          "url": "https://github.com/acme/web/commit/abc123",
+          "committedDate": "2026-10-29T02:40:00Z",
+          "author": {
+            "user": {
+              "login": "rohit-dev"
+            }
+          },
+          "statusCheckRollup": {
+            "state": "FAILURE",
+            "contexts": {
+              "nodes": [
+                {
+                  "__typename": "CheckRun",
+                  "name": "build",
+                  "conclusion": "SUCCESS"
+                },
+                {
+                  "__typename": "CheckRun",
+                  "name": "e2e",
+                  "conclusion": "FAILURE"
+                },
+                {
+                  "__typename": "StatusContext",
+                  "context": "vercel",
+                  "state": "SUCCESS"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "pullRequests": {
+        "nodes": [
+          {
+            "number": 42,
+            "title": "Checkout retry",
+            "url": "https://github.com/acme/web/pull/42",
+            "isDraft": false,
+            "createdAt": "2026-10-26T12:00:00Z",
+            "mergedAt": null,
+            "state": "OPEN",
+            "additions": 40,
+            "deletions": 10,
+            "author": {
+              "login": "asha-dev"
+            },
+            "timelineItems": {
+              "nodes": [
+                {
+                  "createdAt": "2026-10-26T20:00:00Z"
+                }
+              ]
+            },
+            "reviewRequests": {
+              "nodes": [
+                {
+                  "requestedReviewer": {
+                    "login": "vikram-dev"
+                  }
+                }
+              ]
+            },
+            "reviews": {
+              "nodes": []
+            },
+            "commits": {
+              "nodes": [
+                {
+                  "commit": {
+                    "committedDate": "2026-10-26T11:00:00Z",
+                    "author": {
+                      "user": {
+                        "login": "asha-dev"
+                      }
+                    },
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "number": 44,
+            "title": "Fix flaky payment test",
+            "url": "https://github.com/acme/web/pull/44",
+            "isDraft": false,
+            "createdAt": "2026-10-27T09:00:00Z",
+            "mergedAt": null,
+            "state": "OPEN",
+            "additions": 40,
+            "deletions": 10,
+            "author": {
+              "login": "rohit-dev"
+            },
+            "timelineItems": {
+              "nodes": []
+            },
+            "reviewRequests": {
+              "nodes": []
+            },
+            "reviews": {
+              "nodes": []
+            },
+            "commits": {
+              "nodes": [
+                {
+                  "commit": {
+                    "committedDate": "2026-10-27T09:00:00Z",
+                    "author": {
+                      "user": {
+                        "login": "rohit-dev"
+                      }
+                    },
+                    "statusCheckRollup": null
+                  }
+                },
+                {
+                  "commit": {
+                    "committedDate": "2026-10-28T10:00:00Z",
+                    "author": {
+                      "user": {
+                        "login": "rohit-dev"
+                      }
+                    },
+                    "statusCheckRollup": null
+                  }
+                },
+                {
+                  "commit": {
+                    "committedDate": "2026-10-28T12:00:00Z",
+                    "author": {
+                      "user": {
+                        "login": "rohit-dev"
+                      }
+                    },
+                    "statusCheckRollup": {
+                      "state": "FAILURE"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "number": 40,
+            "title": "Order history page",
+            "url": "https://github.com/acme/web/pull/40",
+            "isDraft": false,
+            "createdAt": "2026-10-23T05:00:00Z",
+            "mergedAt": null,
+            "state": "OPEN",
+            "additions": 40,
+            "deletions": 10,
+            "author": {
+              "login": "vikram-dev"
+            },
+            "timelineItems": {
+              "nodes": []
+            },
+            "reviewRequests": {
+              "nodes": []
+            },
+            "reviews": {
+              "nodes": [
+                {
+                  "state": "CHANGES_REQUESTED",
+                  "submittedAt": "2026-10-26T06:00:00Z",
+                  "author": {
+                    "login": "asha-dev"
+                  }
+                }
+              ]
+            },
+            "commits": {
+              "nodes": [
+                {
+                  "commit": {
+                    "committedDate": "2026-10-25T10:00:00Z",
+                    "author": {
+                      "user": {
+                        "login": "vikram-dev"
+                      }
+                    },
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "number": 46,
+            "title": "New design tokens",
+            "url": "https://github.com/acme/web/pull/46",
+            "isDraft": false,
+            "createdAt": "2026-10-28T20:00:00Z",
+            "mergedAt": null,
+            "state": "OPEN",
+            "additions": 900,
+            "deletions": 100,
+            "author": {
+              "login": "meera-dev"
+            },
+            "timelineItems": {
+              "nodes": []
+            },
+            "reviewRequests": {
+              "nodes": [
+                {
+                  "requestedReviewer": {
+                    "login": "asha-dev"
+                  }
+                }
+              ]
+            },
+            "reviews": {
+              "nodes": []
+            },
+            "commits": {
+              "nodes": [
+                {
+                  "commit": {
+                    "committedDate": "2026-10-28T19:00:00Z",
+                    "author": {
+                      "user": {
+                        "login": "meera-dev"
+                      }
+                    },
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "number": 47,
+            "title": "Bump next from 15.1 to 15.2",
+            "url": "https://github.com/acme/web/pull/47",
+            "isDraft": false,
+            "createdAt": "2026-10-01T00:00:00Z",
+            "mergedAt": null,
+            "state": "OPEN",
+            "additions": 40,
+            "deletions": 10,
+            "author": {
+              "login": "dependabot"
+            },
+            "timelineItems": {
+              "nodes": []
+            },
+            "reviewRequests": {
+              "nodes": []
+            },
+            "reviews": {
+              "nodes": []
+            },
+            "commits": {
+              "nodes": [
+                {
+                  "commit": {
+                    "committedDate": "2026-10-01T00:00:00Z",
+                    "author": {
+                      "user": null
+                    },
+                    "statusCheckRollup": {
+                      "state": "SUCCESS"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "number": 48,
+            "title": "Spike: offline cart",
+            "url": "https://github.com/acme/web/pull/48",
+            "isDraft": true,
+            "createdAt": "2026-10-28T07:00:00Z",
+            "mergedAt": null,
+            "state": "OPEN",
+            "additions": 40,
+            "deletions": 10,
+            "author": {
+              "login": "meera-dev"
+            },
+            "timelineItems": {
+              "nodes": []
+            },
+            "reviewRequests": {
+              "nodes": []
+            },
+            "reviews": {
+              "nodes": []
+            },
+            "commits": {
+              "nodes": [
+                {
+                  "commit": {
+                    "committedDate": "2026-10-28T07:00:00Z",
+                    "author": {
+                      "user": {
+                        "login": "meera-dev"
+                      }
+                    },
+                    "statusCheckRollup": null
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "merged": {
+      "nodes": [
+        {
+          "number": 39,
+          "title": "Coupon field",
+          "url": "https://github.com/acme/web/pull/39",
+          "isDraft": false,
+          "createdAt": "2026-10-27T06:00:00Z",
+          "mergedAt": "2026-10-28T09:00:00Z",
+          "state": "MERGED",
+          "additions": 40,
+          "deletions": 10,
+          "author": {
+            "login": "asha-dev"
+          },
+          "timelineItems": {
+            "nodes": []
+          },
+          "reviewRequests": {
+            "nodes": []
+          },
+          "reviews": {
+            "nodes": [
+              {
+                "state": "APPROVED",
+                "submittedAt": "2026-10-28T08:00:00Z",
+                "author": {
+                  "login": "vikram-dev"
+                }
+              }
+            ]
+          },
+          "commits": {
+            "nodes": [
+              {
+                "commit": {
+                  "committedDate": "2026-10-27T06:00:00Z",
+                  "author": {
+                    "user": {
+                      "login": "asha-dev"
+                    }
+                  },
+                  "statusCheckRollup": {
+                    "state": "SUCCESS"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {}
+      ]
+    }
+  }
+}
