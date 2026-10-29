@@ -1,0 +1,160 @@
+{
+  "issues": [
+    {
+      "key": "FS-118",
+      "fields": {
+        "summary": "Payment webhook",
+        "status": {
+          "id": "3",
+          "name": "In Progress",
+          "statusCategory": {
+            "key": "indeterminate"
+          }
+        },
+        "assignee": {
+          "accountId": "acc-meera"
+        },
+        "statuscategorychangedate": "2026-10-22T05:00:00.000+0000",
+        "updated": "2026-10-22T05:00:00.000+0000"
+      },
+      "changelog": {
+        "histories": [
+          {
+            "author": {
+              "accountId": "acc-meera"
+            },
+            "created": "2026-10-22T05:00:00.000+0000",
+            "items": [
+              {
+                "field": "assignee",
+                "to": "x",
+                "toString": "x"
+              },
+              {
+                "field": "status",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "FS-120",
+      "fields": {
+        "summary": "Coupon field",
+        "status": {
+          "id": "10002",
+          "name": "In Review",
+          "statusCategory": {
+            "key": "indeterminate"
+          }
+        },
+        "assignee": {
+          "accountId": "acc-asha",
+          "emailAddress": "asha@acme.com"
+        },
+        "statuscategorychangedate": "2026-10-27T06:00:00.000+0000",
+        "updated": "2026-10-27T06:00:00.000+0000"
+      },
+      "changelog": {
+        "histories": [
+          {
+            "author": {
+              "accountId": "acc-asha",
+              "emailAddress": "asha@acme.com"
+            },
+            "created": "2026-10-27T06:00:00.000+0000",
+            "items": [
+              {
+                "field": "assignee",
+                "to": "x",
+                "toString": "x"
+              },
+              {
+                "field": "status",
+                "to": "3",
+                "toString": "In Progress"
+              }
+            ]
+          },
+          {
+            "author": {
+              "accountId": "acc-asha",
+              "emailAddress": "asha@acme.com"
+            },
+            "created": "2026-10-28T11:00:00.000+0000",
+            "items": [
+              {
+                "field": "assignee",
+                "to": "x",
+                "toString": "x"
+              },
+              {
+                "field": "status",
+                "to": "10002",
+                "toString": "In Review"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "key": "FS-121",
+      "fields": {
+        "summary": "Cart badge count",
+        "status": {
+          "id": "10003",
+          "name": "Done",
+          "statusCategory": {
+            "key": "done"
+          }
+        },
+        "assignee": {
+          "accountId": "acc-rohit",
+          "emailAddress": "rohit@acme.com"
+        },
+        "statuscategorychangedate": "2026-10-28T13:00:00.000+0000",
+        "updated": "2026-10-28T13:00:00.000+0000"
+      },
+      "changelog": {
+        "histories": [
+          {
+            "author": {
+              "accountId": "acc-rohit",
+              "emailAddress": "rohit@acme.com"
+            },
+            "created": "2026-10-28T13:00:00.000+0000",
+            "items": [
+              {
+                "field": "assignee",
+                "to": "x",
+                "toString": "x"
+              },
+              {
+                "field": "status",
+                "to": "10003",
+                "toString": "Done"
+              }
+            ]
+          },
+          {
+            "author": {
+              "accountId": "acc-rohit"
+            },
+            "created": "2026-10-28T12:00:00.000+0000",
+            "items": [
+              {
+                "field": "status",
+                "to": "999",
+                "toString": "Mystery"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
