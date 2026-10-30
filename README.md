@@ -82,9 +82,5 @@ npm run typecheck
 npm run build     # bundles dist/ (committed, the Action runs it)
 ```
 
-## Docs
-- [MVP plan](docs/MVP-PLAN.md)
-- [Research notes](docs/RESEARCH.md)
-
 ## License
 MIT
