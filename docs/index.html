@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BlockerRadar · standup from your data</title>
+<meta name="description" content="BlockerRadar drafts your team's daily standup from GitHub and Jira/Linear, finds blockers from the data, and posts one Slack digest.">
+<style>
+  :root {
+    --bg: #fbfaf8; --surface: #ffffff; --text: #1d1d1f; --muted: #5f6368; --line: #e6e3de;
+    --accent: #d93a2b; --accent-soft: #fdecea; --warn: #b7791f; --ok: #2f855a; --code-bg: #15171c; --code-text: #e8e6e3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121316; --surface: #1b1d22; --text: #ecebe8; --muted: #a1a1aa; --line: #2c2f36;
+      --accent: #ff6b5a; --accent-soft: #2e1a18; --warn: #f0b24a; --ok: #5fcf8f; --code-bg: #0b0c0f; --code-text: #e8e6e3;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 72px 0 40px; }
+  .tag { display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; }
+  h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.08; margin: 18px 0 16px; letter-spacing: -0.02em; }
+  .lead { font-size: 20px; color: var(--muted); max-width: 640px; margin: 0 0 28px; }
+  .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 12px 20px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--surface); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .demo { margin: 8px 0 64px; background: var(--code-bg); color: var(--code-text); border-radius: 14px; padding: 22px 24px; overflow-x: auto; font: 14px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; box-shadow: 0 10px 30px rgba(0,0,0,.12); }
+  .demo .h { color: #ff8a7a; font-weight: 700; } .demo .w { color: #f6c560; } .demo .m { color: #8b949e; } .demo .n { color: #7ee2a8; }
+  h2 { font-size: 28px; margin: 0 0 20px; letter-spacing: -0.01em; }
+  section { padding: 0 0 64px; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .card { min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; font-size: 15px; }
+  th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  tr:last-child td { border-bottom: 0; }
+  code { font: 14px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: var(--accent-soft); padding: 1px 6px; border-radius: 6px; }
+  .table-wrap { overflow-x: auto; }
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  ol.steps li { min-width: 0; counter-increment: s; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 18px 64px; position: relative; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 18px; top: 16px; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+  ol.steps strong { display: block; margin-bottom: 2px; }
+  ol.steps span { color: var(--muted); font-size: 15px; }
+  pre.snip { background: var(--code-bg); color: var(--code-text); border-radius: 12px; padding: 16px 18px; overflow-x: auto; font: 13.5px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; margin: 10px 0 0; }
+  footer { border-top: 1px solid var(--line); padding: 28px 0 48px; color: var(--muted); font-size: 14px; }
+  @media (max-width: 600px) { header { padding-top: 48px; } .lead { font-size: 18px; } ol.steps li { padding-left: 56px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="tag">Open source · GitHub Action</span>
+    <h1>Your standup, written from the data.<br>Blockers, found before day 4.</h1>
+    <p class="lead">BlockerRadar reads GitHub and Jira or Linear, writes each person's standup, flags real blockers with a reason and a link, and posts one short Slack digest every morning.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/rahulcs754/BlockerRadar#how-to-use-it">Set it up in 10 minutes</a>
+      <a class="btn" href="https://github.com/rahulcs754/BlockerRadar">View on GitHub</a>
+    </div>
+  </header>
+
+  <pre class="demo" aria-label="Example digest"><span class="m">Standup · 2026-10-29</span>
+
+<span class="h">🚧 Blockers (4)</span>
+🔴 main CI red (e2e): default branch is failing → <span class="n">@Rohit</span>
+🔴 PR #42 "Checkout retry": waiting for review 56h → <span class="n">@Vikram</span>
+<span class="w">🟡</span> FS-118 "Payment webhook": In Progress for 4 working days → <span class="n">@Meera</span>
+<span class="w">🟡</span> PR #40 "Order history page": changes requested 70h ago, no new commits → <span class="n">@Vikram</span>
+
+<span class="h">👥 Standup</span>
+Asha:  merged #39 · FS-120 → In Review     <span class="m">today:</span> #42 Checkout retry · review #46
+Rohit: 2 commits on #44 · FS-121 → Done   <span class="m">today:</span> #44 Fix flaky payment test</pre>
+
+  <section>
+    <h2>Why teams use it</h2>
+    <div class="grid">
+      <div class="card"><h3>Shorter standups</h3><p>Updates are already written. The meeting is only for the blockers.</p></div>
+      <div class="card"><h3>Blockers come out early</h3><p>A PR waiting two days for review or a red <code>main</code> shows up with a link and the person who can fix it.</p></div>
+      <div class="card"><h3>Nobody types an update</h3><p>Other standup bots ask questions. BlockerRadar reads GitHub and your tracker.</p></div>
+      <div class="card"><h3>Fair to remote teams</h3><p>Wait time counts working days in your timezone, so Monday mornings are not full of false alarms.</p></div>
+      <div class="card"><h3>Safe by design</h3><p>Read-only on GitHub, Jira and Linear. Tokens stay in your Actions secrets. The only write is the Slack post.</p></div>
+      <div class="card"><h3>Free and self-hosted</h3><p>A GitHub Action plus one YAML file. No dashboard, no seat pricing, no data leaving your org.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What it flags</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rule</th><th>When</th><th>Default</th></tr></thead>
+      <tbody>
+        <tr><td><code>ci-red</code></td><td>Default branch or an open PR is failing CI</td><td>on</td></tr>
+        <tr><td><code>review-wait</code></td><td>PR is ready, nobody has reviewed it</td><td>24 working hours</td></tr>
+        <tr><td><code>changes-stale</code></td><td>Changes requested, no new commit since</td><td>48 working hours</td></tr>
+        <tr><td><code>ticket-stuck</code></td><td>Ticket sits in the same in-progress status</td><td>3 working days</td></tr>
+        <tr><td><code>pr-too-big</code></td><td>Large PR not approved yet (warning)</td><td>800 lines</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to set it up</h2>
+    <ol class="steps">
+      <li><strong>Create tokens</strong><span>A read-only GitHub fine-grained token, a Slack incoming webhook, and a Jira API token or Linear API key if you use one.</span></li>
+      <li><strong>Add <code>blockerradar.yml</code></strong><span>List your repos and your team: GitHub login, tracker email and Slack id for each person.</span>
+<pre class="snip">timezone: Asia/Kolkata
+repos: [acme/web, acme/api]
+tracker: { type: jira, baseUrl: https://acme.atlassian.net, project: FS }
+team:
+  - { name: Asha, github: asha-dev, tracker: asha@acme.com, slack: U012ABC }</pre></li>
+      <li><strong>Try a dry run</strong><span>Run the CLI with <code>--dry-run</code> to see the digest in your terminal. Nothing is posted.</span></li>
+      <li><strong>Schedule it</strong><span>Add the secrets and a workflow with <code>uses: rahulcs754/BlockerRadar@main</code> on a weekday cron. The digest lands in Slack every morning.</span></li>
+    </ol>
+  </section>
+
+  <footer>
+    BlockerRadar is MIT licensed. <a href="https://github.com/rahulcs754/BlockerRadar">Source</a> · <a href="https://github.com/rahulcs754/BlockerRadar/blob/main/docs/MVP-PLAN.md">Plan</a> · <a href="https://github.com/rahulcs754/BlockerRadar/issues">Issues</a>
+  </footer>
+</div>
+</body>
+</html>

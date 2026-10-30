@@ -1,0 +1,39 @@
+# BlockerRadar config. Put this file in the repo that runs the workflow.
+timezone: Asia/Kolkata
+
+# Repos to read PRs and CI from.
+repos:
+  - acme/web
+  - acme/api
+
+# Optional. Jira or Linear. Remove this block to use GitHub only.
+tracker:
+  type: jira
+  baseUrl: https://acme.atlassian.net
+  project: FS
+  # Env var names (defaults shown). Values come from secrets.
+  emailEnv: JIRA_EMAIL
+  tokenEnv: JIRA_API_TOKEN
+
+# For Linear instead:
+# tracker:
+#   type: linear
+#   team: WEB            # team key, as in WEB-123
+#   tokenEnv: LINEAR_API_KEY
+
+# One row per person. tracker = Jira email (or accountId if emails are hidden) or Linear email.
+# slack = Slack member id, so blockers @mention the right person.
+team:
+  - { name: Asha, github: asha-dev, tracker: asha@acme.com, slack: U012ABC }
+  - { name: Rohit, github: rohit-dev, tracker: rohit@acme.com }
+
+# All optional. Defaults shown.
+rules:
+  review-wait: { hours: 24 }    # PR ready, no review yet
+  changes-stale: { hours: 48 }  # changes requested, no new commit
+  ticket-stuck: { days: 3 }     # ticket in the same "in progress" status
+  pr-too-big: { lines: 800 }    # big PR not approved yet (warning)
+  ci-red: { enabled: true }     # failing PR or default branch
+
+slack:
+  webhookEnv: SLACK_WEBHOOK_URL

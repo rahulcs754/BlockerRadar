@@ -1,0 +1,25 @@
+Standup · 2026-10-29
+
+Blockers (6)
+  !! main CI red (e2e): default branch is failing → Rohit
+     https://github.com/acme/web/commit/abc123
+  !! PR #42 "Checkout retry": waiting for review 56h → Vikram
+     https://github.com/acme/web/pull/42
+  !! PR #44 "Fix flaky payment test": CI failing (last push 16h ago) → Rohit
+     https://github.com/acme/web/pull/44
+   ! FS-118 "Payment webhook": In Progress for 4 working days → Meera
+     https://acme.atlassian.net/browse/FS-118
+   ! PR #40 "Order history page": changes requested 70h ago, no new commits → Vikram
+     https://github.com/acme/web/pull/40
+   ! PR #46 "New design tokens": 1000 lines changed, hard to review; think about splitting it → Meera
+     https://github.com/acme/web/pull/46
+
+Standup
+  Asha: merged #39 · FS-120 → In Review
+    today: #42 Checkout retry · review #46 · FS-120 Coupon field
+  Rohit: 2 commits on #44 · FS-121 → Done
+    today: #44 Fix flaky payment test
+  Vikram: reviewed #39
+    today: #40 Order history page · review #42
+  Meera: opened #46, #48
+    today: #46 New design tokens · #48 Spike: offline cart (draft) · FS-118 Payment webhook
